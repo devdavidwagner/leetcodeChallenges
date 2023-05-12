@@ -1,0 +1,15 @@
+C:\Users\David\Programming\leetcodeChallenges\obj\Debug\net7.0\leetcodeChallenges.csproj.AssemblyReference.cache
+C:\Users\David\Programming\leetcodeChallenges\obj\Debug\net7.0\leetcodeChallenges.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\David\Programming\leetcodeChallenges\obj\Debug\net7.0\leetcodeChallenges.AssemblyInfoInputs.cache
+C:\Users\David\Programming\leetcodeChallenges\obj\Debug\net7.0\leetcodeChallenges.AssemblyInfo.cs
+C:\Users\David\Programming\leetcodeChallenges\obj\Debug\net7.0\leetcodeChallenges.csproj.CoreCompileInputs.cache
+C:\Users\David\Programming\leetcodeChallenges\bin\Debug\net7.0\leetcodeChallenges.exe
+C:\Users\David\Programming\leetcodeChallenges\bin\Debug\net7.0\leetcodeChallenges.deps.json
+C:\Users\David\Programming\leetcodeChallenges\bin\Debug\net7.0\leetcodeChallenges.runtimeconfig.json
+C:\Users\David\Programming\leetcodeChallenges\bin\Debug\net7.0\leetcodeChallenges.dll
+C:\Users\David\Programming\leetcodeChallenges\bin\Debug\net7.0\leetcodeChallenges.pdb
+C:\Users\David\Programming\leetcodeChallenges\obj\Debug\net7.0\leetcodeChallenges.dll
+C:\Users\David\Programming\leetcodeChallenges\obj\Debug\net7.0\refint\leetcodeChallenges.dll
+C:\Users\David\Programming\leetcodeChallenges\obj\Debug\net7.0\leetcodeChallenges.pdb
+C:\Users\David\Programming\leetcodeChallenges\obj\Debug\net7.0\leetcodeChallenges.genruntimeconfig.cache
+C:\Users\David\Programming\leetcodeChallenges\obj\Debug\net7.0\ref\leetcodeChallenges.dll
