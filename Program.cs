@@ -4,7 +4,38 @@ class Program
 {
     static void Main(string[] args)
     {   
-        
+        Console.WriteLine("\nWelcome to David's Leetcode Challenge Menu!\n Select an app (number key):\n");
+        Console.WriteLine("1. Roman Numerals to Integers\n");
+        Console.WriteLine("2. Climbing Stairs Algorithm\n");
+        ConsoleKeyInfo keyInfo = Console.ReadKey();
+
+        switch(keyInfo.Key) {
+                case ConsoleKey.D1:
+                    RomanToIntMain();
+                    break;
+                case ConsoleKey.D2:
+                    ClimbStairsMan();
+                    break;
+                default:
+                    break;
+        }
+    }
+
+     static void ClimbStairsMan(){
+        Console.WriteLine("\nWelcome to David's Climbing Stairs Problem!\n");
+        //string value = "";
+       // value = Console.ReadLine() ?? throw new Exception("Error! Nothing entered.");
+
+       // int returnedInt = ClimbStairs(value);
+    }
+
+    static int ClimbStairs(int n) {
+        int s = 0;
+
+        return s;
+    }
+
+    static void RomanToIntMain(){
         Console.WriteLine("Welcome to David's Roman Numerals to Integer converter!\n Enter a Roman numeral to convert:\n");
         string value = "";
         value = Console.ReadLine() ?? throw new Exception("Error! Nothing entered.");
@@ -12,9 +43,6 @@ class Program
         int returnedInt = RomanToInt(value);
 
         Console.WriteLine($"YOUR NUMERAL: {value} EQUALS {returnedInt} in INTEGER");
-        
-
-
     }
     static int RomanToInt(string s) {          
         string[,] romanValuePairs = {{"I", "1"}, {"V", "5"}, {"X", "10"}, {"L", "50"}, {"C", "100"}, {"D", "500"}, {"M", "1000"}};
