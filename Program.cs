@@ -16,10 +16,8 @@ class Program
 
 
     }
-    static int RomanToInt(string s) {   
-        
+    static int RomanToInt(string s) {          
         string[,] romanValuePairs = {{"I", "1"}, {"V", "5"}, {"X", "10"}, {"L", "50"}, {"C", "100"}, {"D", "500"}, {"M", "1000"}};
-        string[] subtractors = {"I","X","C"};
         List<int> values = new List<int>();
         int totalValue = 0;
         foreach (char c in s){
@@ -41,20 +39,41 @@ class Program
                 }
             }         
         }
-        int previousInt = 1;
-        bool usesSubtraction = false;
-        foreach (int val in values)
-        {
-            Console.WriteLine(val.ToString());
-            if (val > previousInt){
-                totalValue += val;
+        int previousInt = 0;
+        List<int> newVals = new List<int>();
+        int indexI = 0;
+        for(int i = 0; i < values.Count(); i++){
+            int nextInt = 0;
+            if(i != values.Count() - 1){
+                nextInt = values[i + 1];
+            }             
+            if (previousInt != 0 && values[i] > previousInt){
+                int newVal = (values[i] - previousInt);
+                if(newVals.Count() > i){
+                    newVals[i - 1] = newVal;
+                }
+                else{
+                    newVals.Add(newVal);
+                }             
             }
             else{
-
-            }
-            previousInt = val;
+                    if(nextInt != 0 && nextInt <= values[i]){
+                        newVals.Add(values[i]);
+                    }
+                    else if(values.Count() - 1 == i){
+                        newVals.Add(values[i]);
+                    }
+                }
+            
+            previousInt = values[i];
+            indexI++;
         }          
-
+        foreach (int val in newVals)
+        {
+           // Console.WriteLine("Val adding..." + val.ToString());
+            totalValue += val;
+           // Console.WriteLine("Total Value..." + totalValue.ToString());
+        } 
         return totalValue;
     }
 }
