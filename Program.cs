@@ -7,6 +7,7 @@ class Program
         Console.WriteLine("\nWelcome to David's Leetcode Challenge Menu!\n Select an app (number key):\n");
         Console.WriteLine("1. Roman Numerals to Integers\n");
         Console.WriteLine("2. Two Sum Solution\n");
+        Console.WriteLine("2. Reverse Integer Algorithm\n");
         ConsoleKeyInfo keyInfo = Console.ReadKey();
 
         switch(keyInfo.Key) {
@@ -16,11 +17,55 @@ class Program
                 case ConsoleKey.D2:
                     TwoSum();
                     break;
+                case ConsoleKey.D3:
+                    ReverseInt();
+                    break;
                 default:
                     break;
         }
     }
 
+    static void ReverseInt() {
+        Console.WriteLine("\nWelcome to David's Reverse Integer Solution!\n");
+        Console.WriteLine("\nPlease enter an integer:");
+        string value = "";
+        value = Console.ReadLine() ?? throw new Exception("Error! Nothing entered.");
+
+        int chosenInt = int.Parse(value);
+        int answer = ReverseAlgo(chosenInt);
+        Console.WriteLine("\nThis is your integer in reverse: " + answer.ToString());
+    }
+
+    //TODO: MAKE LOOPABLE
+    static int ReverseAlgo(int x) {
+        int answer = 0;
+        string conv = x.ToString();
+        char[] convChars = conv.ToCharArray();
+        string reverseConv = "";
+        bool negative = false;
+        for (int i = convChars.Length - 1; i >= 0; i--)
+        {
+            string singleChar = convChars[i].ToString();
+            int c = 0;
+            if(int.TryParse(singleChar, out c)){
+                reverseConv = reverseConv + singleChar;
+            }
+            else {
+                negative = true;
+            }
+            
+        }     
+        int.TryParse(reverseConv, out answer);
+
+        if(negative){
+            answer *= -1;
+        }
+        return answer;
+    }
+
+    // TO DO: ADD INPUT functionality to allow any valid num/target instead of choosing a predetermined list
+
+    //TO DO: MAKE LOOPABLE
      static void TwoSum(){
         Console.WriteLine("\nWelcome to David's Two Sum Solution!\n");
         Console.WriteLine("\nPlease choose a problem:\n");
