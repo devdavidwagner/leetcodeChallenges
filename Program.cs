@@ -6,7 +6,7 @@ class Program
     {   
         Console.WriteLine("\nWelcome to David's Leetcode Challenge Menu!\n Select an app (number key):\n");
         Console.WriteLine("1. Roman Numerals to Integers\n");
-        Console.WriteLine("2. Climbing Stairs Algorithm\n");
+        Console.WriteLine("2. Two Sum Solution\n");
         ConsoleKeyInfo keyInfo = Console.ReadKey();
 
         switch(keyInfo.Key) {
@@ -14,25 +14,60 @@ class Program
                     RomanToIntMain();
                     break;
                 case ConsoleKey.D2:
-                    ClimbStairsMan();
+                    TwoSum();
                     break;
                 default:
                     break;
         }
     }
 
-     static void ClimbStairsMan(){
-        Console.WriteLine("\nWelcome to David's Climbing Stairs Problem!\n");
-        //string value = "";
-       // value = Console.ReadLine() ?? throw new Exception("Error! Nothing entered.");
+     static void TwoSum(){
+        Console.WriteLine("\nWelcome to David's Two Sum Solution!\n");
+        Console.WriteLine("\nPlease choose a problem:\n");
 
-       // int returnedInt = ClimbStairs(value);
+        Console.WriteLine("1. nums = [2,7,11,15], target = 9\n");
+        Console.WriteLine("2. nums = [3,2,4], target = 6\n");
+        Console.WriteLine("3. nums = [3,2,3], target = 6\n");
+        ConsoleKeyInfo keyInfo = Console.ReadKey();
+        int[] answer;
+        switch(keyInfo.Key) {
+                case ConsoleKey.D1:
+                    answer = TwoSumAlgo(new int[]{2,7,11,15}, 9);
+                    Console.WriteLine($"The solution for #1 is: {answer[0]},{answer[1]}");
+                    break;
+                case ConsoleKey.D2:
+                    answer = TwoSumAlgo(new int[]{3,2,4}, 6);
+                    Console.WriteLine($"The solution for #2 is: {answer[0]},{answer[1]}");
+                    break;
+                case ConsoleKey.D3:
+                    answer = TwoSumAlgo(new int[]{3,2,3}, 6);
+                    Console.WriteLine($"The solution for #3 is: {answer[0]},{answer[1]}");
+                    break;
+                default:
+                    break;
+        }
+
+       
     }
 
-    static int ClimbStairs(int n) {
-        int s = 0;
-
-        return s;
+    static int[] TwoSumAlgo(int[] nums, int target) {
+        int[] sumInd = new int[2];
+        bool found = false;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            for (int j = i + 1; j < nums.Length; j++)
+            {
+                if(nums[i] + nums[j] == target){
+                    sumInd[0] = i;
+                    sumInd[1] = j;
+                    found = true;
+                    break;
+                }
+            }
+            if(found)
+                break;
+        }
+        return sumInd;
     }
 
     static void RomanToIntMain(){
