@@ -7,7 +7,7 @@ class Program
         Console.WriteLine("\nWelcome to David's Leetcode Challenge Menu!\n Select an app (number key):\n");
         Console.WriteLine("1. Roman Numerals to Integers\n");
         Console.WriteLine("2. Two Sum Solution\n");
-        Console.WriteLine("2. Reverse Integer Algorithm\n");
+        Console.WriteLine("3. Reverse Integer Algorithm\n");
         ConsoleKeyInfo keyInfo = Console.ReadKey();
 
         switch(keyInfo.Key) {
