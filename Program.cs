@@ -1,7 +1,15 @@
 ﻿using System;
-
+public class ListNode {
+    public int val;
+    public ListNode next;
+    public ListNode(int val=0, ListNode next=null) {
+        this.val = val;
+        this.next = next;
+      }
+  }
 class Program
 {
+    
     static void Main(string[] args)
     {
         bool mainRunning = true;   
@@ -10,6 +18,7 @@ class Program
             Console.WriteLine("1. Roman Numerals to Integers");
             Console.WriteLine("2. Two Sum Solution");
             Console.WriteLine("3. Reverse Integer Algorithm");
+            Console.WriteLine("4. Add Two Numbers");
             ConsoleKeyInfo keyInfo = Console.ReadKey();
         
             switch(keyInfo.Key) {
@@ -22,6 +31,9 @@ class Program
                     case ConsoleKey.D3:
                         ReverseInt();
                         break;
+                    case ConsoleKey.D4:
+                        AddTwoNumbers();
+                        break;
                     case ConsoleKey.Escape:
                         mainRunning = false;
                         break;
@@ -31,6 +43,78 @@ class Program
             }
         }
   
+    }
+    static void AddTwoNumbers() {
+        Console.WriteLine("\nWelcome to David's Add Two Numbers Solution!\nType EXIT to go back to main Menu.\n");
+        Console.WriteLine("\nPress any key to solve : l1 = [2,4,3], l2 = [5,6,4]");  //342 + 465 = 807
+        Console.ReadKey();
+        bool running = true;
+        while(running){
+
+            ListNode l1 = new ListNode(2, new ListNode(4, new ListNode(3))); 
+            ListNode l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
+
+            ListNode answer = AddTwoNumbersAlgo(l1, l2);
+
+            string consoleAnswer = "";
+
+            while(answer.next != null){
+                consoleAnswer += answer.val.ToString() + ",";
+                answer = answer.next;
+            }
+
+            Console.WriteLine("Your Answer is :" + consoleAnswer);
+            running = false;
+
+        }
+    }
+    
+    public static ListNode AddTwoNumbersAlgo(ListNode l1, ListNode l2) {        
+        string reversed1 = ConvertToString(l1);
+        int sum1 = int.Parse(reversed1);
+
+        string reversed2 = ConvertToString(l2);
+        int sum2 = int.Parse(reversed2);
+
+        int totalSum = sum1 + sum2;
+        Console.WriteLine("TOTAL SUM: " + totalSum.ToString());
+        string sumInString = totalSum.ToString();               
+        char[] sumCharArray = sumInString.ToCharArray();
+
+        ListNode sumNode = new ListNode((sumCharArray[sumCharArray.Length - 1]));
+        Console.WriteLine(sumCharArray.Length.ToString());
+        for (int i = sumCharArray.Length - 2; i > -1 ; i--)
+        {     
+            ListNode nextNode = new ListNode(sumCharArray[i]);
+            if( i == sumCharArray.Length - 2){
+                sumNode.next = nextNode;
+            }         
+            if( i > 0){
+                nextNode.next = new ListNode(sumCharArray[i - 1]);
+            }
+            
+           
+        }
+        
+        return sumNode;
+    }
+
+    static string ConvertToString(ListNode list){    
+        string twoNumbers = "";
+        while(list.next != null)
+        {
+            Console.WriteLine(list.val.ToString());
+            twoNumbers += list.val.ToString();
+            list = list.next;
+        }
+        char[] chars = twoNumbers.ToCharArray();
+        string reversed = "";
+        for (int i = chars.Length - 1; i > -1 ; i--)
+        {
+            reversed+= chars[i].ToString();
+        }
+         Console.WriteLine("Reversed string:" + reversed);
+        return reversed;
     }
 
     static void ReverseInt() {
